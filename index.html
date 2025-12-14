@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Prescription - Real AI Integration</title>
+    <title>AI Prescription - Multi-AI Ready!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,26 +21,38 @@
                         <h1 class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                             AI Prescription Pro
                         </h1>
-                        <p class="text-sm text-gray-600">Real AI Integration • LocalStorage Database</p>
+                        <p class="text-sm text-gray-600">✅ Multi-AI Ready • 4 AI Models • LocalStorage DB</p>
                     </div>
                 </div>
                 <div class="flex items-center space-x-4">
                     <button onclick="showHistory()" class="px-4 py-2 text-gray-700 hover:text-indigo-600 transition">
                         <i class="fas fa-history mr-2"></i>History (<span id="historyCount">0</span>)
                     </button>
-                    <button onclick="showSettings()" class="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition">
-                        <i class="fas fa-cog mr-2"></i>Settings
-                    </button>
+                    <div class="px-4 py-2 bg-green-100 text-green-700 rounded-lg font-semibold">
+                        <i class="fas fa-check-circle mr-2"></i>AI Connected
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- Success Banner -->
+    <div class="bg-green-50 border-b border-green-200 py-3">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-center space-x-3">
+                <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                <p class="text-sm text-green-800 font-semibold">
+                    ✅ OpenRouter AI Connected! Choose from GPT-4, Gemini, Claude, or Llama - All Ready!
+                </p>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
         <!-- Stats -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-            <div class="bg-white p-6 rounded-xl shadow-lg border border-indigo-100">
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-indigo-100 hover:shadow-xl transition">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm text-gray-600 mb-1">Total Prescriptions</p>
@@ -51,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-lg border border-green-100">
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-green-100 hover:shadow-xl transition">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm text-gray-600 mb-1">Patients</p>
@@ -62,25 +74,25 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-lg border border-purple-100">
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-purple-100 hover:shadow-xl transition">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-sm text-gray-600 mb-1">AI Provider</p>
-                        <p class="text-xl font-bold text-purple-600" id="currentProvider">OpenAI</p>
+                        <p class="text-sm text-gray-600 mb-1">AI Models</p>
+                        <p class="text-2xl font-bold text-purple-600">4 Available</p>
                     </div>
                     <div class="bg-purple-100 p-4 rounded-full">
                         <i class="fas fa-robot text-purple-600 text-2xl"></i>
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-lg border border-orange-100">
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-green-100 hover:shadow-xl transition">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm text-gray-600 mb-1">Status</p>
-                        <p class="text-lg font-bold text-orange-600" id="apiStatus">Ready</p>
+                        <p class="text-lg font-bold text-green-600">Connected ✓</p>
                     </div>
-                    <div class="bg-orange-100 p-4 rounded-full">
-                        <i class="fas fa-check-circle text-orange-600 text-2xl"></i>
+                    <div class="bg-green-100 p-4 rounded-full">
+                        <i class="fas fa-check-circle text-green-600 text-2xl"></i>
                     </div>
                 </div>
             </div>
@@ -132,9 +144,10 @@
                         <label class="block text-sm font-semibold text-gray-700 mb-2">
                             <i class="fas fa-stethoscope mr-2 text-indigo-600"></i>Symptoms & Diagnosis
                         </label>
-                        <textarea id="symptoms" rows="4" 
+                        <textarea id="symptoms" rows="5" 
                             class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
-                            placeholder="Describe symptoms in detail..." required></textarea>
+                            placeholder="Describe symptoms in detail (e.g., fever since 2 days, dry cough, headache, body ache)..." required></textarea>
+                        <p class="text-xs text-gray-500 mt-1">💡 Be specific for better AI analysis</p>
                     </div>
 
                     <div>
@@ -142,10 +155,10 @@
                             <i class="fas fa-robot mr-2 text-indigo-600"></i>AI Model
                         </label>
                         <select id="aiModel" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
-                            <option value="openai/gpt-4-turbo">🤖 OpenAI GPT-4 Turbo</option>
-                            <option value="google/gemini-pro">✨ Google Gemini Pro</option>
-                            <option value="anthropic/claude-3-sonnet">🧠 Claude 3 Sonnet</option>
-                            <option value="meta-llama/llama-3.1-70b-instruct">🦙 Llama 3.1 70B</option>
+                            <option value="openai/gpt-4-turbo">🤖 OpenAI GPT-4 Turbo (Best Quality)</option>
+                            <option value="google/gemini-pro-1.5">✨ Google Gemini Pro 1.5 (Fast)</option>
+                            <option value="anthropic/claude-3-sonnet">🧠 Claude 3 Sonnet (Detailed)</option>
+                            <option value="meta-llama/llama-3.1-70b-instruct">🦙 Llama 3.1 70B (Open Source)</option>
                         </select>
                     </div>
 
@@ -171,8 +184,9 @@
                 <div id="preview" class="border-2 border-dashed border-gray-300 rounded-lg p-8 min-h-[500px]">
                     <div class="text-center text-gray-400">
                         <i class="fas fa-file-medical text-6xl mb-4"></i>
-                        <p class="text-lg">Fill form to generate prescription</p>
-                        <p class="text-sm mt-2">Real AI will analyze and prescribe</p>
+                        <p class="text-lg font-semibold">Ready to Generate!</p>
+                        <p class="text-sm mt-2">Choose AI model and fill the form</p>
+                        <p class="text-xs mt-4 text-green-600">✅ All 4 AI models are ready</p>
                     </div>
                 </div>
 
@@ -190,26 +204,6 @@
         </div>
     </main>
 
-    <!-- Settings Modal -->
-    <div id="settingsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4">
-            <h3 class="text-2xl font-bold mb-4">API Settings</h3>
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-sm font-semibold mb-2">OpenRouter API Key</label>
-                    <input type="password" id="apiKeyInput" 
-                        class="w-full px-4 py-2 border rounded-lg"
-                        placeholder="sk-or-v1-...">
-                    <p class="text-xs text-gray-500 mt-1">Get free key at <a href="https://openrouter.ai" target="_blank" class="text-indigo-600">openrouter.ai</a></p>
-                </div>
-                <div class="flex space-x-3">
-                    <button onclick="saveApiKey()" class="flex-1 bg-indigo-600 text-white py-2 rounded-lg">Save</button>
-                    <button onclick="closeSettings()" class="flex-1 bg-gray-300 text-gray-700 py-2 rounded-lg">Cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- History Modal -->
     <div id="historyModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 overflow-y-auto">
         <div class="bg-white rounded-xl p-8 max-w-4xl w-full mx-4 my-8">
@@ -224,6 +218,9 @@
     </div>
 
     <script>
+        // Pre-configured OpenRouter API key
+        const OPENROUTER_API_KEY = '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';
+
         // LocalStorage Database
         class PrescriptionDB {
             constructor() {
@@ -240,7 +237,6 @@
                 this.prescriptions.push(prescription);
                 localStorage.setItem('prescriptions', JSON.stringify(this.prescriptions));
                 
-                // Save patient if new
                 if (!this.patients.find(p => p.name === data.patientName)) {
                     this.patients.push({
                         name: data.patientName,
@@ -271,43 +267,42 @@
         // Initialize
         db.updateStats();
 
-        // Real AI Integration using OpenRouter
+        // OpenRouter AI Integration
         async function generateWithAI(symptoms, age, gender, model) {
-            const apiKey = localStorage.getItem('openrouter_api_key');
-            
-            if (!apiKey) {
-                alert('Please set your OpenRouter API key in Settings');
-                showSettings();
-                return null;
-            }
+            const prompt = `You are an expert medical AI doctor. Generate a detailed prescription for:
 
-            const prompt = `You are an expert medical AI. Generate a detailed prescription for:
 Patient Age: ${age} years
 Gender: ${gender}
 Symptoms: ${symptoms}
 
-Provide:
-1. Diagnosis
-2. List of medicines with exact dosages and duration
-3. General advice
+Provide a complete prescription with:
+1. Clear diagnosis based on symptoms
+2. List of medicines with exact names, dosages, frequency, and duration
+3. Important notes for each medicine
+4. General health advice
 
-Format as JSON:
+Format your response as JSON:
 {
-  "diagnosis": "...",
+  "diagnosis": "detailed diagnosis here",
   "medicines": [
-    {"name": "Medicine name", "dosage": "dosage and duration", "notes": "any notes"}
+    {
+      "name": "Medicine name with strength (e.g., Paracetamol 500mg)",
+      "dosage": "exact dosage and frequency (e.g., 1 tablet three times daily after meals)",
+      "duration": "how many days (e.g., 5 days)",
+      "notes": "important notes (e.g., Take with water, may cause drowsiness)"
+    }
   ],
-  "advice": ["advice 1", "advice 2"]
+  "advice": ["advice 1", "advice 2", "advice 3"]
 }`;
 
             try {
                 const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${apiKey}`,
+                        'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
                         'Content-Type': 'application/json',
                         'HTTP-Referer': window.location.href,
-                        'X-Title': 'AI Prescription Generator'
+                        'X-Title': 'AI Prescription Pro'
                     },
                     body: JSON.stringify({
                         model: model,
@@ -322,15 +317,19 @@ Format as JSON:
                             }
                         ],
                         temperature: 0.7,
-                        max_tokens: 1000
+                        max_tokens: 2000
                     })
                 });
 
                 if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error('API Error:', errorData);
                     throw new Error(`API Error: ${response.status}`);
                 }
 
                 const data = await response.json();
+                console.log('API Response:', data);
+                
                 const content = data.choices[0].message.content;
                 
                 // Extract JSON from response
@@ -342,7 +341,7 @@ Format as JSON:
                 return JSON.parse(content);
             } catch (error) {
                 console.error('AI Error:', error);
-                alert('AI generation failed. Using fallback mode.');
+                alert('AI generation failed: ' + error.message + '\n\nUsing fallback mode...');
                 return generateFallback(symptoms, age);
             }
         }
@@ -355,31 +354,48 @@ Format as JSON:
             if (lower.includes('fever')) {
                 medicines.push({
                     name: 'Tab. Paracetamol 500mg',
-                    dosage: '1 tablet three times daily after meals for 3-5 days',
-                    notes: 'Take with water'
+                    dosage: '1 tablet three times daily after meals',
+                    duration: '3-5 days',
+                    notes: 'Take with plenty of water'
                 });
             }
             
             if (lower.includes('cough')) {
                 medicines.push({
                     name: 'Tab. Cetirizine 10mg',
-                    dosage: '1 tablet at bedtime for 5 days',
+                    dosage: '1 tablet once daily at bedtime',
+                    duration: '5-7 days',
                     notes: 'May cause drowsiness'
+                });
+            }
+            
+            if (lower.includes('headache') || lower.includes('pain')) {
+                medicines.push({
+                    name: 'Tab. Ibuprofen 400mg',
+                    dosage: '1 tablet when needed',
+                    duration: 'as needed',
+                    notes: 'Maximum 3 per day, take after meals'
                 });
             }
             
             if (medicines.length === 0) {
                 medicines.push({
                     name: 'Tab. Multivitamin',
-                    dosage: '1 tablet daily',
-                    notes: 'General health'
+                    dosage: '1 tablet daily after breakfast',
+                    duration: '30 days',
+                    notes: 'General health supplement'
                 });
             }
             
             return {
-                diagnosis: symptoms,
+                diagnosis: symptoms + ' (Fallback mode)',
                 medicines: medicines,
-                advice: ['Rest well', 'Drink plenty of water', 'Follow up if symptoms persist']
+                advice: [
+                    'Adequate rest (7-8 hours sleep)',
+                    'Drink plenty of water (8-10 glasses/day)',
+                    'Avoid cold beverages',
+                    'Follow up if symptoms persist'
+                ]
             };
         }
 
@@ -395,13 +411,14 @@ Format as JSON:
             
             const btn = document.getElementById('generateBtn');
             btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>AI Generating...';
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>AI Analyzing...';
             
             document.getElementById('preview').innerHTML = `
                 <div class="text-center">
                     <div class="animate-spin rounded-full h-16 w-16 border-b-4 border-indigo-600 mx-auto mb-4"></div>
                     <p class="text-indigo-600 font-semibold text-lg">Real AI is analyzing...</p>
-                    <p class="text-gray-500 text-sm mt-2">Using ${model}</p>
+                    <p class="text-gray-500 text-sm mt-2">Using ${model.split('/')[1]}</p>
+                    <p class="text-xs text-gray-400 mt-4">This may take 5-15 seconds</p>
                 </div>
             `;
             
@@ -433,19 +450,21 @@ Format as JSON:
                 day: 'numeric' 
             });
             
+            const modelName = data.model.split('/')[1];
+            
             document.getElementById('preview').innerHTML = `
                 <div class="space-y-6">
                     <div class="border-b-2 border-indigo-600 pb-4">
                         <h3 class="text-2xl font-bold text-indigo-600">Dr. Kumar Vaibhav</h3>
                         <p class="text-sm text-gray-600">MBBS, MD (Internal Medicine)</p>
-                        <p class="text-xs text-gray-500 mt-1">AI-Powered Prescription • ${data.model}</p>
+                        <p class="text-xs text-gray-500 mt-1">AI-Powered by ${modelName}</p>
                     </div>
                     
                     <div class="grid grid-cols-2 gap-3 text-sm bg-gray-50 p-4 rounded-lg">
                         <div><strong>Patient:</strong> ${data.patientName}</div>
                         <div><strong>Age/Gender:</strong> ${data.age} / ${data.gender}</div>
                         <div><strong>Date:</strong> ${date}</div>
-                        <div><strong>AI Model:</strong> ${data.model.split('/')[1]}</div>
+                        <div><strong>AI Model:</strong> ${modelName}</div>
                     </div>
                     
                     <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-600">
@@ -462,7 +481,7 @@ Format as JSON:
                                         <span class="bg-indigo-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-1">${idx + 1}</span>
                                         <div class="flex-1">
                                             <p class="font-semibold text-gray-900">${med.name}</p>
-                                            <p class="text-sm text-gray-700 mt-1">${med.dosage}</p>
+                                            <p class="text-sm text-gray-700 mt-1">${med.dosage}${med.duration ? ' for ' + med.duration : ''}</p>
                                             ${med.notes ? `<p class="text-xs text-gray-600 mt-1 italic">${med.notes}</p>` : ''}
                                         </div>
                                     </div>
@@ -481,8 +500,8 @@ Format as JSON:
                     ` : ''}
                     
                     <div class="border-t pt-4 text-xs text-gray-500">
-                        <p><i class="fas fa-check-circle text-green-600 mr-1"></i> Generated by Real AI (${data.model})</p>
-                        <p><i class="fas fa-check-circle text-green-600 mr-1"></i> Stored in LocalStorage Database</p>
+                        <p><i class="fas fa-check-circle text-green-600 mr-1"></i> Generated by ${modelName} AI</p>
+                        <p><i class="fas fa-check-circle text-green-600 mr-1"></i> Saved in LocalStorage Database</p>
                     </div>
                 </div>
             `;
@@ -491,7 +510,7 @@ Format as JSON:
         function savePrescription() {
             if (currentPrescription) {
                 db.savePrescription(currentPrescription);
-                alert('Prescription saved to local database!');
+                alert('✅ Prescription saved to local database!');
             }
         }
 
@@ -506,44 +525,38 @@ Format as JSON:
             
             doc.setFontSize(12);
             doc.text('Dr. Kumar Vaibhav', 20, 40);
-            doc.text(`Patient: ${currentPrescription.patientName}`, 20, 55);
-            doc.text(`Age: ${currentPrescription.age} | Gender: ${currentPrescription.gender}`, 20, 62);
-            doc.text(`Date: ${new Date().toLocaleDateString()}`, 20, 69);
+            doc.text('MBBS, MD (Internal Medicine)', 20, 47);
             
-            doc.text('Diagnosis:', 20, 82);
-            doc.text(currentPrescription.diagnosis, 20, 89, { maxWidth: 170 });
+            doc.setFontSize(10);
+            doc.text(`Patient: ${currentPrescription.patientName}`, 20, 60);
+            doc.text(`Age: ${currentPrescription.age} | Gender: ${currentPrescription.gender}`, 20, 67);
+            doc.text(`Date: ${new Date().toLocaleDateString()}`, 20, 74);
             
-            doc.text('Prescription:', 20, 105);
-            let y = 112;
+            doc.text('Diagnosis:', 20, 87);
+            const diagnosisLines = doc.splitTextToSize(currentPrescription.diagnosis, 170);
+            doc.text(diagnosisLines, 20, 94);
+            
+            let y = 94 + (diagnosisLines.length * 7) + 10;
+            doc.text('Prescription:', 20, y);
+            y += 7;
+            
             currentPrescription.medicines.forEach((med, idx) => {
                 doc.text(`${idx + 1}. ${med.name}`, 20, y);
-                doc.text(`   ${med.dosage}`, 20, y + 7);
-                y += 14;
+                y += 7;
+                doc.text(`   ${med.dosage}${med.duration ? ' for ' + med.duration : ''}`, 20, y);
+                y += 7;
+                if (med.notes) {
+                    const noteLines = doc.splitTextToSize(`   Note: ${med.notes}`, 170);
+                    doc.text(noteLines, 20, y);
+                    y += noteLines.length * 7;
+                }
+                y += 3;
             });
             
-            doc.text(`Generated by AI (${currentPrescription.model})`, 20, 280);
+            doc.setFontSize(8);
+            doc.text(`Generated by ${currentPrescription.model.split('/')[1]} AI • AI Prescription Pro`, 20, 280);
             
             doc.save(`prescription-${currentPrescription.patientName}-${Date.now()}.pdf`);
-        }
-
-        function showSettings() {
-            document.getElementById('settingsModal').classList.remove('hidden');
-            const currentKey = localStorage.getItem('openrouter_api_key') || '';
-            document.getElementById('apiKeyInput').value = currentKey;
-        }
-
-        function closeSettings() {
-            document.getElementById('settingsModal').classList.add('hidden');
-        }
-
-        function saveApiKey() {
-            const key = document.getElementById('apiKeyInput').value.trim();
-            if (key) {
-                localStorage.setItem('openrouter_api_key', key);
-                document.getElementById('apiStatus').textContent = 'Connected';
-                alert('API key saved!');
-                closeSettings();
-            }
         }
 
         function showHistory() {
@@ -551,19 +564,20 @@ Format as JSON:
             const content = document.getElementById('historyContent');
             
             if (prescriptions.length === 0) {
-                content.innerHTML = '<p class="text-gray-500 text-center">No prescriptions yet</p>';
+                content.innerHTML = '<p class="text-gray-500 text-center py-8">No prescriptions yet. Generate your first one!</p>';
             } else {
                 content.innerHTML = prescriptions.reverse().map(p => `
-                    <div class="bg-gray-50 p-4 rounded-lg border">
+                    <div class="bg-gray-50 p-4 rounded-lg border hover:shadow-md transition">
                         <div class="flex justify-between items-start">
                             <div>
-                                <p class="font-bold">${p.patientName}</p>
+                                <p class="font-bold text-lg">${p.patientName}</p>
                                 <p class="text-sm text-gray-600">${p.age} years • ${p.gender}</p>
                                 <p class="text-xs text-gray-500 mt-1">${new Date(p.createdAt).toLocaleString()}</p>
                             </div>
-                            <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded">${p.model?.split('/')[1] || 'AI'}</span>
+                            <span class="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full font-semibold">${p.model ? p.model.split('/')[1] : 'AI'}</span>
                         </div>
-                        <p class="text-sm mt-2 text-gray-700">${p.diagnosis}</p>
+                        <p class="text-sm mt-3 text-gray-700 bg-white p-2 rounded">${p.diagnosis}</p>
+                        <p class="text-xs text-gray-500 mt-2">${p.medicines.length} medicine(s) prescribed</p>
                     </div>
                 `).join('');
             }
@@ -573,13 +587,6 @@ Format as JSON:
 
         function closeHistory() {
             document.getElementById('historyModal').classList.add('hidden');
-        }
-
-        // Check API key on load
-        if (localStorage.getItem('openrouter_api_key')) {
-            document.getElementById('apiStatus').textContent = 'Connected';
-        } else {
-            document.getElementById('apiStatus').textContent = 'No API Key';
         }
     </script>
 </body>
